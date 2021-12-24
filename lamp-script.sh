@@ -77,3 +77,23 @@ sudo apt-get install -y nodejs
 sudo curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && apt-get install yarn
+
+# pull project
+sudo rm -r /var/www/html
+sudo git clone git@bitbucket.org/g2secom/g2s-akeneo-3.0.git /var/www/html
+
+# composer install
+cd /var/www/html
+sudo composer install -q 
+
+# akeneo install
+sudo apt install make
+sudo echo "APP_ENV=prod
+APP_DATABASE_HOST=localhost
+APP_DATABASE_PORT=null
+APP_DATABASE_NAME=akeneo_pim
+APP_DATABASE_USER=akeneo_pim
+APP_DATABASE_PASSWORD=akeneo_pim
+APP_INDEX_HOSTS='localhost:9200'" > .env
+sudo NO_DOCKER=true make dev
+sudo chown -R www-data:www-data .
