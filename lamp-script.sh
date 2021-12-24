@@ -1,11 +1,8 @@
 # Upgrade
-apt-get update && apt-get upgrade -y
-
-# install sudo
-apt-get install -y sudo
+sudo apt-get update && sudo apt-get upgrade -y
 
 # set timezone
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
+DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends tzdata
 
 # install apache2
 sudo apt-get install -y apache2 # Need to work out how to set time and date
