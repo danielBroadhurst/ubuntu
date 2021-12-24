@@ -46,7 +46,7 @@ sudo echo "<VirtualHost *:80>
         RewriteRule ^(.*)$ index.php [QSA,L]
     </Directory>
 
-    <Directory /var/www/html//public/bundles>
+    <Directory /var/www/html/public/bundles>
         RewriteEngine Off
     </Directory>
 
