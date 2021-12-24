@@ -59,13 +59,13 @@ sudo echo "<VirtualHost *:80>
     ErrorLog ${APACHE_LOG_DIR}/akeneo-pim_error.log
     LogLevel warn
     CustomLog ${APACHE_LOG_DIR}/akeneo-pim_access.log combined
-</VirtualHost>" > /etc/apache2/sites-available/akeneo-pim.local.conf
+</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
 # enable virtual host
 sudo apache2ctl configtest
-sudo a2ensite akeneo-pim.local
+sudo a2ensite 000-default
 sudo service apache2 reload
-sudo echo "127.0.0.1    akeneo-pim.local" >> /etc/hosts
+sudo echo "127.0.0.1    000-default" >> /etc/hosts
 
 # install node
 sudo apt-get install curl
