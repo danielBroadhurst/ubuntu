@@ -88,11 +88,11 @@ sudo composer install -q
 
 # akeneo install
 sudo apt install make
-sudo echo "APP_ENV=prod
+sudo echo "APP_ENV=dev
 APP_DATABASE_HOST=localhost
-APP_DATABASE_PORT=null
-APP_DATABASE_NAME=akeneo_pim
-APP_DATABASE_USER=akeneo_pim
+APP_DATABASE_PORT=3306
+APP_DATABASE_NAME=pim_dev_db
+APP_DATABASE_USER=admin
 APP_DATABASE_PASSWORD=akeneo_pim
 APP_INDEX_HOSTS='localhost:9200'" > .env
 sudo NO_DOCKER=true make dev
