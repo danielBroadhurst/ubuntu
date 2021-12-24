@@ -32,7 +32,7 @@ sudo sed -i 's/memory_limit = .*/memory_limit = '512'/' /etc/php/7.4/fpm/php.ini
 sudo sed -i 's/date.timezone = .*/date.timezone = 'UTC'/' /etc/php/7.4/fpm/php.ini
 
 # create akeneo-pim.local.conf file
-echo "<VirtualHost *:80>
+sudo echo "<VirtualHost *:80>
     ServerName akeneo-pim.local
 
     DocumentRoot /var/www/html/public
@@ -65,15 +65,15 @@ echo "<VirtualHost *:80>
 sudo apache2ctl configtest
 sudo a2ensite akeneo-pim.local
 sudo service apache2 reload
-echo "127.0.0.1    akeneo-pim.local" >> /etc/hosts
+sudo echo "127.0.0.1    akeneo-pim.local" >> /etc/hosts
 
 # install node
 sudo apt-get install curl
-curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
+sudo curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 
 # install yarn
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+sudo curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && apt-get install yarn
