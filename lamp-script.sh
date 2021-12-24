@@ -65,7 +65,7 @@ sudo echo "<VirtualHost *:80>
 sudo apache2ctl configtest
 sudo a2ensite 000-default
 sudo service apache2 reload
-sudo echo "127.0.0.1    000-default" >> /etc/hosts
+# sudo echo "127.0.0.1    000-default" >> /etc/hosts
 
 # install node
 sudo apt-get install curl
